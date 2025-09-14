@@ -48,12 +48,12 @@ This project performs an end-to-end analysis of the Heart Disease dataset to ide
 1. **Clone the repository**
    ```bash
    git clone https://github.com/siyuat-ui/Heart-Disease-EDA.git
-   cd heart-disease-analysis
+   cd Heart-Disease-EDA
    ```
 
 2. **Create a virtual environment (recommended)**
    ```bash
-   python -m venv heart_env
+   python3 -m venv heart_env
    
    # On Windows
    heart_env\Scripts\activate
@@ -76,7 +76,7 @@ This project performs an end-to-end analysis of the Heart Disease dataset to ide
 
 5. **Run the analysis**
    ```bash
-   python run_analysis.py
+   python3 run_analysis.py
    ```
 
 ## Usage & Expected Outputs
@@ -86,7 +86,7 @@ This project performs an end-to-end analysis of the Heart Disease dataset to ide
 Execute the main pipeline script:
 
 ```bash
-python run_analysis.py
+python3 run_analysis.py
 ```
 
 The script will automatically:
@@ -112,16 +112,49 @@ After successful execution, the following files will be generated in `results/fi
 Run data quality checks:
 
 ```bash
-python tests/data_validation.py
+python3 tests/data_validation.py
 ```
+
+The expected output is
+
+```
+Data validation passed!
+```
+
+If there are any issues, you will see specific error messages like:
+
+- "Missing columns: [column_names]"
+- "Column 'age' contains invalid values"
+- "Critical column 'target' contains missing values"
 
 ### Pipeline Integrity Test
 
 Verify the complete pipeline:
 
 ```bash
-python tests/pipeline_integrity.py
+python3 tests/pipeline_integrity.py
 ```
+
+The expected output is
+
+Installing dependencies from requirements.txt ...
+Dependencies installed.
+
+```
+Step 1/5: Loading and preprocessing data...
+Data preprocessing completed.
+Step 2/5: Generating numerical feature plots...
+Step 3/5: Generating categorical feature plots...
+Step 4/5: Generating correlation plots...
+Step 5/5: Pipeline completed. All figures saved in 'results/figures/'
+Script ran successfully!
+All expected files were generated successfully!
+```
+
+If there are issues, you will see:
+
+- "Pipeline failed during execution!" (if the main script fails)
+- "Pipeline incomplete! Missing files: [file_list]" (if expected output files weren't created)
 
 ## Analysis Highlights
 
