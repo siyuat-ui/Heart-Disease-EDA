@@ -1,5 +1,7 @@
 # Project Transformation Reflection
 
+The link to the github repo is [here](https://github.com/siyuat-ui/Heart-Disease-EDA).
+
 ## Original State of the Analysis
 
 The initial analysis consisted of scattered Jupyter notebooks with hardcoded paths, manual data cleaning, and no documentation. Results were impossible to reproduce reliably due to missing environment specifications and inconsistent preprocessing steps.
