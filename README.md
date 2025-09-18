@@ -154,9 +154,9 @@ If there are issues, you will see:
 
 ### Statistical Methods Used
 
-1. **Pearson Correlation**: Measures linear relationships between numerical features
-2. **Point-Biserial Correlation**: Assesses relationships between continuous and binary variables
-3. **Cramer's V**: Evaluates associations between categorical variables
+1. [**Pearson Correlation**](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient): Measures linear relationships between numerical features
+2. [**Point-Biserial Correlation**](https://en.wikipedia.org/wiki/Point-biserial_correlation_coefficient): Assesses relationships between continuous and binary variables
+3. [**Cramer's V**](https://en.wikipedia.org/wiki/Cram%C3%A9r%27s_V): Evaluates associations between categorical variables
 
 ### Data Preprocessing
 
