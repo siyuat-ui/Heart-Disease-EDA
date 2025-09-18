@@ -3,11 +3,10 @@ import os
 
 def test_pipeline():
     # Run the end-to-end script
-    try:
-        subprocess.run(['python', 'run_analysis.py'], check=True)
-        print("Script ran successfully!")
-    except subprocess.CalledProcessError:
-        raise RuntimeError("Pipeline failed during execution!")
+    result = subprocess.run(['python', 'run_analysis.py'], capture_output=True, text=True)
+    
+    # Check return code
+    assert result.returncode == 0, f"Pipeline failed!\nSTDOUT:\n{result.stdout}\nSTDERR:\n{result.stderr}"
 
     # List of expected output files
     expected_files = [
@@ -22,11 +21,4 @@ def test_pipeline():
 
     # Check if all expected files exist
     missing_files = [f for f in expected_files if not os.path.exists(f)]
-    if missing_files:
-        raise FileNotFoundError(f"Pipeline incomplete! Missing files: {missing_files}")
-    
-    print("All expected files were generated successfully!")
-
-# Run the test
-if __name__ == "__main__":
-    test_pipeline()
+    assert not missing_files, f"Pipeline incomplete! Missing files: {missing_files}"

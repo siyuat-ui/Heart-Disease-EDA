@@ -107,18 +107,22 @@ After successful execution, the following files will be generated in `results/fi
 - **point_biserial_correlation.png** - Point-biserial correlations with target variable
 - **categorical_features_cramersv.png** - Cramer's V association matrix for categorical features
 
+## Tests
+
+This project includes two categories of tests: **data validation** and **pipeline integrity**. All tests should be run using [pytest](https://docs.pytest.org/).
+
 ### Data Validation
 
-Run data quality checks:
+Run data quality checks on the processed dataset:
 
 ```bash
-python3 tests/data_validation.py
+pytest -v tests/test_data_validation.py
 ```
 
 The expected output is
 
-```
-Data validation passed!
+```bash
+tests/test_data_validation.py::test_data_validation PASSED
 ```
 
 If there are any issues, you will see specific error messages like:
@@ -132,23 +136,13 @@ If there are any issues, you will see specific error messages like:
 Verify the complete pipeline:
 
 ```bash
-python3 tests/pipeline_integrity.py
+pytest -v tests/test_pipeline_integrity.py
 ```
 
 The expected output is
 
-Installing dependencies from requirements.txt ...
-Dependencies installed.
-
-```
-Step 1/5: Loading and preprocessing data...
-Data preprocessing completed.
-Step 2/5: Generating numerical feature plots...
-Step 3/5: Generating categorical feature plots...
-Step 4/5: Generating correlation plots...
-Step 5/5: Pipeline completed. All figures saved in 'results/figures/'
-Script ran successfully!
-All expected files were generated successfully!
+```bash
+tests/test_pipeline_integrity.py::test_pipeline PASSED
 ```
 
 If there are issues, you will see:
